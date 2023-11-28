@@ -1,14 +1,20 @@
-#Usar imagen 
+# Utilizar la ultima imagen de node
 FROM node:lts
 
-#Camviamos al directo actuak
+# Crear directorio de trabajo
 WORKDIR /app
 
-#Copiamos el contenido del proyecto
+# Copiar el contenido del proyecto a /app
+COPY ./package*.json /app/
+# Instalar dependencias
+RUN npm install
+
 COPY . /app/
+# Exponer el puerto 90
+EXPOSE 90
 
-#Exponer el puerto 80
-EXPOSE 80
+# Instalar aplicacion 
+CMD ["node", "app.js"]
 
-#Iniciar aplicación
-CMD [ "node","app.js" ]
+
+

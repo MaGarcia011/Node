@@ -1,5 +1,9 @@
+docker build -t pruebaapp .
 
+docker run -p 3050:90 pruebaapp 
 
-
+=============================================== Solo puedes tener uno activo 
 
 docker-compose up -d
+
+docker-compose start
